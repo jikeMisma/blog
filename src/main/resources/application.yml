@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
+
+  resources:
+    static-locations: classpath:/static/
+  profiles:
+    active: dev
+
+

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragements :: head(~{::title})">
+		<meta charset="utf-8">
+		<title>博客详情</title>
+		<meta name="viewport" content="width = device-width,initial-scale=1.0" />
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+		<link rel="stylesheet" href="static/css/typo.css" />
+		<link rel="stylesheet" href="../static/css/me.css" />
+		<link rel="stylesheet" href="../static/lib/prism/prism.css" />
+		<link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" />
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	</head>
+	<body>
+		<!-- 导航 -->
+		<nav th:replace="_fragements :: menu(1)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+			<div class="ui container">
+				<div class="ui inverted secondary stackable menu">
+					<h2 class="ui teal header item">Blog</h2>
+					<a href="#" class="m-item item m-mobile-hide"><i class=" home icon"></i>首页 </a>
+					<a href="#" class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类 </a>
+					<a href="#" class="m-item item m-mobile-hide"><i class=" tegs icon"></i>标签 </a>
+					<a href="#" class="m-item item m-mobile-hide"><i class=" clone icon"></i>归档 </a>
+					<a href="#" class="m-item item m-mobile-hide"><i class=" info icon"></i>关于我 </a>
+					<div class="right m-item item m-mobile-hide">
+						<div class="ui icon inverted transparent input">
+							<input type="text" placeholder="search...">
+							<i class="search link icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+				<i class="sidebar icon"></i>
+			</a>
+
+		</nav>
+
+		<!-- 中间内容 -->
+		<div id="content-main" class="m-container-small m-padded-tn-big">
+			<div class="ui container">
+				<div class="ui top attached segment" >
+					<div class="ui horizontal link list">
+						<div class="item">
+							<img class="ui avatar image" src="static/images/zhanwei.jpg"  th:src="@{${blog.user.avatar}}"/>
+							<div class="content">
+								<a class="header" th:text="${blog.user.nickname}">马志成</a>
+							</div>
+						</div>
+						<div class="item">
+							<i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-2</span>
+						</div>
+						<div class="item">
+							<i class="eye icon"></i><span th:text="${blog.views}">1254</span>
+						</div>
+					</div>
+				</div>
+				<div class="ui attached segment">
+					<!-- 图片区域 -->
+					<img src="static/images/zhanwei.jpg" class="ui rounded fluid image" th:src="@{${blog.firstPicture}}" />
+				</div>
+				<div class="ui attached padded segment">
+					<!-- 内容 -->
+					<div class="ui right aligned basic segment">
+						<div class="ui orange basic label" th:text="${blog.flag}">
+							原创
+						</div>
+					</div>
+					<h2 class="ui center aligned header" th:text="${blog.title}">互联网大厂纷纷裁员，未毕业的你是否做好了顺利就业的准备？</h2>
+					
+					<div id="content " class="typo js-toc-content typo-selection m-padded-lr-repensive m-padded-tn-large" th:utext="${blog.content}">
+						<pre><code class="language-css">p { color: red }</code></pre>
+						<h2 id="section1">一</h2>
+						<p>自一月疫情的影响，使得各个行业的发展都不景气。互联网行业尤为严重，不论是还在刚起步的科技公司还是BATJ这样的大厂，都有了相应的人员缩减和招聘缩减（大家对比去年的或者前年的招聘职位数量和今年的就可以看到）。</p>
+						<p>就在4月18日，微博爆出了蘑菇街裁员的消息，而且裁员比例竟然高达百分之14%，对于员工人数在1000+的互联网公司。也就意味着将近150多人面临离职的危险。难道真的像有些人说的：2019年是过去十年互联网行业最不景气的一年，但有可能是未来十年最景气的十年？<br>
+						</p>
+						<hr>
+						<p><img src="https://img-blog.csdnimg.cn/20200420095503139.png" alt="在这里插入图片描述"></p>
+						<hr>
+						<p><img src="https://img-blog.csdnimg.cn/20200420095512802.png" alt="在这里插入图片描述"></p>
+						<hr>
+						<h2 id="h2">二</h2>
+						<p>水涨船高，反之亦然，2020年，在这个特殊的时期在这个行业摸爬滚打十多年的老司机都有可能面临着辞退的危险。我们这些还未出校门的新手怎么能没有危机感。</p>
+						<p><strong>互联网是不相信眼泪的</strong>，同样每一个行业都是不相信眼泪的。裁员确实危机，但是仔细想想也还好，<strong>物竞天择，适者生存</strong>这是亘古不变变得真理。企业受到了影响，无法养活更多的员工，那么就需要裁减一部分人员来减小开支，人之常情，如果我们作为企业的高管，在企业面临这样的危险的时候我想也会是同样的选择。但是裁员也不是随机裁的吧，我们要知道<strong>你的价值和你为公司带来的利润是和你的裁员风险成反比的</strong>，换句话说，留下的是相比其他成员能够给公司带来效益的人，走掉的是公司认为在应该的工薪分为内，没有给公司创造相应利益的人。现在的社会就是这样。我想说道这里，大家应该明白了吧：<strong>不论是在校还是在企业，夯实的基础+强硬的专业技能+永不停息学习的脚步，跟上计算机行业的脚步，是你立于不败之地的定海神针</strong></p>
+						<p>行业是不景气，对于应届生还有未毕业的人都会有影响。但是即使企业缩招，还是要招人的，只不过岗位数量和要求有所提升。如果你在同一批次的求职者中<strong>拥有夯实的基础+强硬的专业技能，同时又善于学习，坚持学习</strong>，那么是不是比其他人更有优势，我想无论是哪个企业都愿意招有能力，有价值，能够创造效益的员工吧。</p>
+						<p>坚持学习，洞察前沿，了解市场，让技术服务于市场，时刻的危机便是前进的动力，加油！</p>
+						<p><strong>互联网不相信眼泪，但是它相信技术!</strong></p>                                  
+					</div>
+					<!-- 标签 -->
+					<div class="m-padded-lr-repensive">
+						<div class="ui basic teal left pointing label" th:each="tag : ${blog.tages}" th:text="${tag.name}">方法论</div>
+					</div>
+					
+					<!-- 赞赏 -->
+					<div class="ui center aligned basic segment">
+						<button id="payButton" class="ui basic orange circular button">赞赏</button>
+					</div>
+					
+					<div class="ui payQ flowing popup transition hidden">
+						<div class="ui orange basic label">
+							<div class="ui images" style="font-size: inherit;">
+								<div class="image">
+									<img src="static/images/wecaht.png" th:src="@{/images/wecaht.png}" class="ui rounded bordered image" style="width: 120px;"/>
+									<div>支付宝</div>
+								</div>
+								<div class="image">
+									<img src="static/images/wecaht.png" th:src="@{/images/wecaht.png}" class="ui rounded bordered image" style="width: 120px;"/>
+									<div>微信</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="ui attached positive message">
+					<!-- 博客信息 -->
+					<div class="ui middle aligned grid">
+						<div class="ui eleven wide column">
+							<div class="list">
+								<li>作者：<span th:text="${blog.user.nickname}">马志成</span><a href="#" th:href="@{/about}" target="_blank">（联系作者）</a>（联系作者）</li>
+								<li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-2 09:08</span></li>
+								<li>版权声明：自由转载，非商用-非衍生-保持署名（创意共享30个许可证）</li>
+								<li>公共号转载请在文末添加作者公众号二维码</li>
+							</div>
+						</div>
+						<div class="ui five wide column">
+							<img src="static/images/wecaht.png" th:src="@{/images/wecaht.png}" class="ui right floated rounded borderd image" style="width: 110px;" />
+						</div>
+					</div>
+				</div>
+				<div  class="ui bottom attached segment">
+					<!-- 留言区域列表 -->
+					<div id="comment-container" class="ui teal segment">
+						<div th:fragment="commentList">
+							<div class="ui threaded comments" style="max-width: 100%">
+								<h3 class="ui dividing header">评论</h3>
+								<div class="comment">
+									<a class="avatar">
+										<img src="static/images/my.jpg">
+									</a>
+									<div class="content">
+										<a class="author">Matt</a>
+										<div class="metadata">
+											<span class="date">Today at 5:42PM</span>
+										</div>
+										<div class="text">
+											How artistic!
+										</div>
+										<div class="actions">
+											<a class="reply" data-commentid="1" data-commentnickname="Matt" onclick="reply(this)">回复</a>
+										</div>
+									</div>
+								</div>
+								<div class="comment">
+									<a class="avatar">
+										<img src="static/images/my.jpg">
+									</a>
+									<div class="content">
+										<a class="author">Elliot Fu</a>
+										<div class="metadata">
+											<span class="date">Yesterday at 12:30AM</span>
+										</div>
+										<div class="text">
+											<p>This has been very useful for my research. Thanks as well!</p>
+										</div>
+										<div class="actions">
+											<a class="reply">回复</a>
+										</div>
+									</div>
+									<div class="comments">
+										<div class="comment">
+											<a class="avatar">
+												<img src="static/images/my.jpg">
+											</a>
+											<div class="content">
+												<a class="author">Jenny Hess</a>
+												<div class="metadata">
+													<span class="date">Just now</span>
+												</div>
+												<div class="text">
+													Elliot you are always so right :)
+												</div>
+												<div class="actions">
+													<a class="reply">回复</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="comment">
+									<a class="avatar">
+										<img src="static/images/my.jpg">
+									</a>
+									<div class="content">
+										<a class="author">Joe Henderson</a>
+										<div class="metadata">
+											<span class="date">5 days ago</span>
+										</div>
+										<div class="text">
+											Dude, this is awesome. Thanks so much
+										</div>
+										<div class="actions">
+											<a class="reply" >回复</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					
+					<div id="comment-form" class="ui form">
+						<!--用于传值的隐含域-->
+						<input type="hidden" name="blog.id" th:value="${blog.id}">
+						<input type="hidden" name="parentComment.id" value="-1">
+						<div class="field">
+							<textarea name="content" placeholder="请输入评论内容"></textarea>
+						</div>
+						<div class="fields">
+							<div class="field m-mobile-wide">
+								<div class="ui left icon input">
+									<i class="ui user icon"></i>
+									<input type="text" name="nickname" placeholder="姓名" />
+								</div>
+								
+							</div>
+							<div class="field m-mobile-wide">
+								<div class="ui left icon input">
+									<i class="ui mail icon"></i>
+									<input type="text" name="email" placeholder="邮箱" />
+								</div>
+								
+							</div>
+							
+							<div class="field m-mobile-wide m-magin-bottom-mini">
+								<button id="commentpost-btn" type="button" class="ui m-mobile-wide m-magin-bottom-mini teal button"><i class="edit icon"></i>发布</button>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<!-- 固定的四个按钮 -->
+	<div class="m-fixed m-right-bottom m-padded-but">
+		<div class="ui vertical icon buttons">
+			<button type="button"class="ui toc teal button">目录</button>
+			<a href="#comment-container" class="ui teal button">留言</a>
+			<button class="ui wechat icon button"><i class="weixin icon"></i></button>
+			<div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
+		</div>
+	</div>
+	
+	<div class="ui toc-container flowing popup transition hidden" style="width: 260px;">
+		
+		<ol class="js-toc">
+			
+		</ol>
+	</div>
+	
+	<div id="qrcode" class="ui weichar-qr flowing popup transition hidden" style="width: 140px !important;">
+		<!-- <img src="static/images/wecaht.png" class="ui rounded image" style="width: 110px;" style="width: 130px !important;"/> -->
+	</div>
+	
+		<!-- 尾部 -->
+		<footer class="ui inverted vertical segment m-padded-tn-massive">
+			<div class="ui center aligned container">
+				<div class="ui inverted divided stackable grid">
+					<div class="three wide column">
+						<img src="static/images/wecaht.png" class="ui centered rounded image" style="width: 110px;" />
+					</div>
+					<div class="four wide column">
+						<h4 class="ui inverted header">最新博客</h4>
+						<div class="ui inverted link list">
+							<a href="#" class="item">用户故事（User Story）</a>
+							<a href="#" class="item">关于可以联系的清单</a>
+							<a href="#" class="item">失败要乘早</a>
+						</div>
+					</div>
+					<div class="four wide column">
+						<h4 class="ui inverted header">联系我</h4>
+						<div class="ui inverted link list">
+							<a href="#" class="item">Email：2889479657@qq.com</a>
+							<a href="#" class="item">QQ:2889479657</a>
+							<a href="#" class="item">Tel:15200371771</a>
+						</div>
+					</div>
+					<div class="five wide column">
+						<h4 class="ui inverted header">Blog</h4>
+						<p>这是我的个人博客，会反向关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
+					</div>
+				</div>
+				<div class="ui inverted section divider"></div>
+				<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2019-2020 by mzc.hnust</p>
+			</div>
+		</footer>
+		
+		
+		
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+		<script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+		<script src="../static/lib/tocbot/tocbot.min.js"  th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+		<script src="../static/lib/qrcode/qrcode.min.js"  th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+		<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+		
+		<script th:inline="javascript">
+			
+			/* 初始化tocbot */
+			tocbot.init({
+			  // Where to render the table of contents.
+			  tocSelector: '.js-toc',
+			  // Where to grab the headings to build the table of contents.
+			  contentSelector: '.js-toc-content',
+			  // Which headings to grab inside of the contentSelector element.
+			  headingSelector: 'h1, h2, h3',
+			  // For headings inside relative or absolute positioned containers within content.
+			 // hasInnerContainers: true,
+			});
+			
+			
+			$('.menu.toggle').click(function(){
+				$('.m-item').toggleClass('m-mobile-hide');
+			});
+			
+			$('#payButton').popup({
+				popup:$('.payQ.popup'),
+				on:'click',
+				possition:'bottom center'
+			});
+			
+			$('.toc.button').popup({
+				popup:$('.toc-container.popup'),
+				on:'click',
+				possition:'bottom center'
+			});
+			
+			$('.wechat').popup({
+				popup:$('.weichar-qr'),
+				possition:'left center'
+			});
+
+			var serurl="127.0.0.1:8080";
+			var url = /*[[@{/blog/{id}(id=blog.id)}]]*/"";
+			var qrcode = new QRCode("qrcode", {
+			    text: serurl + url,
+			    width: 120,
+			    height: 120,
+			    colorDark : "#333",
+			    colorLight : "#ffffff",
+			    correctLevel : QRCode.CorrectLevel.H
+			});
+			
+			$('#toTop-button').click(function (){
+				$(window).scrollTo(0,520);
+			});
+
+			$('.ui.form').form({
+				fields:{
+					title:{
+						identifier:'content',
+						rules:[{
+							type:'empty',
+							prompt:'请输入评论内容'
+						}]
+					},
+					content:{
+						identifier:'nickname',
+						rules:[{
+							type:'empty',
+							prompt:'请输入姓名'
+						}]
+					},
+					typeId:{
+						identifier:'email',
+						rules:[{
+							type:'email',
+							prompt:'请填写正确的邮箱地址'
+						}]
+					}
+				}
+			});
+
+			$('#commentpost-btn').click(function () {
+				var boo = $('.ui.form').form("validate form");
+				if(boo){
+					console.log('校验成功！');
+				}else{
+					console.log('校验失败！');
+				}
+			});
+
+			//向后台发送评论中的数据
+			function postData() {
+				$("#comment-container").load(/*[[@{/comments}]]*/"", {
+					"parentComment.id": $("[name='parentComment.id']").val(),
+					"blog.id": $("[name='blog.id']").val(),
+					"nickname": $("[name='nickname']").val(),
+					"email": $("[name='email']").val(),
+					"content": $("[name='content']").val()
+				},function (responseTxt,statusTxt,xhr) {
+					//滚动到id所指的地方
+					$(window).scrollTo($('#comment-container'),500);
+
+					clearContent();
+
+				});
+			}
+
+			function clearContent() {
+				$("[name='content']").val('');
+				$("[name='parentComment.id']").val(-1);
+				$("[name='content']").attr("placeholder","请输入评论信息...");
+
+			}
+
+
+			//data-commentid="1" data-commentnickname="Matt" onclick="reply(this)"
+			function reply(obj) {
+				var commentId = $(obj).data('commentid');
+				var commentNickname = $(obj).data('commentnickname');
+
+				//实现在评论区@某人，光标定位值content处
+				$("[name='content']").attr("placeholder","@"+commentNickname).focus();
+				$("[name='parentComment.id']").val(commentId);
+				//滚动
+				$(window).scrollTo($('#comment-form'),500);
+
+
+			}
+		</script>
+	</body>
+</html>
