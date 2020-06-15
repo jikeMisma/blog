@@ -1,5 +1,6 @@
 package com.mzc.web;
 
+import com.mzc.po.User;
 import com.mzc.po.comment;
 import com.mzc.service.BlogService;
 import com.mzc.service.CommentsService;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author mazhicheng
@@ -35,11 +38,19 @@ public class CommentController {
     }
 
     @PostMapping("comments")
-    public String post(comment comment){
+    public String post(comment comment, HttpSession session){
 
         Long blodId = comment.getBlog().getId();
         comment.setBlog(blogService.getBlog(blodId));
-        comment.setAvatar(avatar);
+        User user =(User) session.getAttribute("user");
+        if(user !=null){
+            comment.setAvatar(user.getAvatar());
+            comment.setAdminComment(true);
+            //comment.setNickname(user.getNickname());
+        }else{
+            comment.setAvatar(avatar);
+        }
+
         commentsService.saveComment(comment);
         return "redirect:/comments/"+blodId;
     }

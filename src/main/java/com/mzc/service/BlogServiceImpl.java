@@ -38,6 +38,7 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.getOne(id);
     }
 
+    @Transactional
     @Override
     public Blog getAndConvert(Long id) throws ClassNotFoundException {
         Blog blog =blogRepository.getOne(id);
@@ -48,6 +49,9 @@ public class BlogServiceImpl implements BlogService {
         BeanUtils.copyProperties(blog,b);
         String content = b.getContent();
         b.setContent(MarkdownUtils.makedownToHtmlExtensions(content));
+
+        //浏览详情页面之后浏览数目进行增加
+        blogRepository.updateViews(id);
         return b;
     }
 

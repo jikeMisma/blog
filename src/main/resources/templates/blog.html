@@ -141,7 +141,10 @@
 										<img src="static/images/my.jpg" th:src="@{${comment.avatar}}">
 									</a>
 									<div class="content">
-										<a class="author" th:text="${comment.nickname}">Matt</a>
+										<a class="author" >
+											<span th:text="${comment.nickname}">Matt</span>
+											<div class="ui mini basic teal left pointing label m-padded-tb-min" th:if="${comment.adminComment}">博主</div>
+										</a>
 										<div class="metadata">
 											<span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
 										</div>
@@ -150,6 +153,30 @@
 										</div>
 										<div class="actions">
 											<a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickname}" onclick="reply(this)">回复</a>
+										</div>
+									</div>
+
+									<div class="comments" th:if="${#arrays.length(comment.replayComments)>0}">
+										<div class="comment" th:each="reply : ${comment.replayComments}">
+											<a class="avatar">
+												<img src="static/images/my.jpg" th:src="@{${reply.avatar}}">
+											</a>
+											<div class="content">
+												<a class="author" >
+													<span th:text="${reply.nickname}">Matt</span>
+													<div class="ui mini basic teal left pointing label m-padded-tb-min" th:if="${reply.adminComment}">博主</div>
+													<span th:text="|@${reply.parentComment.nickname}|" class="m-teal">@小白</span>
+												</a>
+												<div class="metadata">
+													<span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+												</div>
+												<div class="text" th:text="${reply.content}">
+													How artistic!
+												</div>
+												<div class="actions">
+													<a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -225,14 +252,14 @@
 							<div class="field m-mobile-wide">
 								<div class="ui left icon input">
 									<i class="ui user icon"></i>
-									<input type="text" name="nickname" placeholder="姓名" />
+									<input type="text" name="nickname" placeholder="姓名" th:value="${session.user}!=null ? ${session.user.nickname}"/>
 								</div>
 								
 							</div>
 							<div class="field m-mobile-wide">
 								<div class="ui left icon input">
 									<i class="ui mail icon"></i>
-									<input type="text" name="email" placeholder="邮箱" />
+									<input type="text" name="email" placeholder="邮箱" th:value="${session.user}!=null ? ${session.user.email}" />
 								</div>
 								
 							</div>
@@ -390,7 +417,7 @@
 
 			//当页面初始化完成之后做的动作
 			$(function () {
-				$("#comment-container").load(/*[[@{comments/{id}(id=${blog.id})}]]*/"comments/21");
+				$("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"comments/21");
 			});
 
 			$('#commentpost-btn').click(function () {
@@ -413,7 +440,7 @@
 					"content": $("[name='content']").val()
 				},function (responseTxt,statusTxt,xhr) {
 					//滚动到id所指的地方
-					$(window).scrollTo($('#comment-container'),500);
+					//$(window).scrollTo($('#comment-container'),500);
 
 					clearContent();
 

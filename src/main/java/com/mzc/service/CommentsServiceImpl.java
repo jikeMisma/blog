@@ -25,8 +25,9 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Override
     public List<comment> lsitCommentByBlogId(Long blodId) {
-        Sort sort = Sort.by(Sort.Direction.DESC,"createTime");
-        return commentRepository.findByBlogId(blodId,sort);
+        Sort sort = Sort.by(Sort.Direction.ASC,"createTime");
+        List<comment> comments = commentRepository.findByBlogIdAndParentCommentNull(blodId,sort);
+        return eachComment(comments);
     }
 
     @Transactional

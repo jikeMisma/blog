@@ -115,8 +115,13 @@ body{
 
 /* color */
 .m-black{
-	color: #333;
+	color: #333 !important;
 }
+
+.m-teal{
+	color: #00B5AD !important;
+}
+
 
 /* position */
 .m-right-top{
