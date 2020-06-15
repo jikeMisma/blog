@@ -13,9 +13,23 @@
 本博客系统支持用户的登录注册。
 
 ## 页面预览
+**代码结构预览**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200615160157432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L216Y19sb3Zl,size_16,color_FFFFFF,t_70)
+
+**博客主页**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200615160232994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L216Y19sb3Zl,size_16,color_FFFFFF,t_70)
+
+**博客详情展示**![](https://img-blog.csdnimg.cn/20200615160258526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L216Y19sb3Zl,size_16,color_FFFFFF,t_70)
+**后台管理**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200615160334323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L216Y19sb3Zl,size_16,color_FFFFFF,t_70)
 
 ## 项目结构和数据库
+数据库整体使用musql，ORM采用jpa。
 
+
+**数据库结构预览**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200615160611112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L216Y19sb3Zl,size_16,color_FFFFFF,t_70#pic_center)
 
 ##  关于开源
 目前由于部分代码存在缺陷，所以还未对代码进行开源，等之后有时间将一些常见的bug进行修改解决之后将会对系统进行开源，敬请期待。

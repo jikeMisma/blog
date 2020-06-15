@@ -1201,3 +1201,79 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2020-06-15 15:33:32.898  INFO 13600 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : result : redirect:/comments/21
 2020-06-15 15:33:32.907  INFO 13600 --- [http-nio-8080-exec-6] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@6352b08f}
 2020-06-15 15:33:32.967  INFO 13600 --- [http-nio-8080-exec-6] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:41:02.803  INFO 13156 --- [restartedMain] com.mzc.MyblogApplication                : Starting MyblogApplication on DESKTOP-GD7FJ03 with PID 13156 (E:\idea_project\plog_project\target\classes started by dall in E:\idea_project\plog_project)
+2020-06-15 15:41:02.814 DEBUG 13156 --- [restartedMain] com.mzc.MyblogApplication                : Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-06-15 15:41:02.815  INFO 13156 --- [restartedMain] com.mzc.MyblogApplication                : The following profiles are active: dev
+2020-06-15 15:41:03.054  INFO 13156 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in E:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/E:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2020-06-15 15:41:03.059  INFO 13156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-15 15:41:03.061  INFO 13156 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-15 15:41:05.922  INFO 13156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-06-15 15:41:06.194  INFO 13156 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246ms. Found 5 JPA repository interfaces.
+2020-06-15 15:41:08.442  INFO 13156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-06-15 15:41:08.469  INFO 13156 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-15 15:41:08.470  INFO 13156 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-06-15 15:41:08.757  INFO 13156 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-15 15:41:08.758  INFO 13156 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5694 ms
+2020-06-15 15:41:09.743  INFO 13156 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-06-15 15:41:09.914  INFO 13156 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-06-15 15:41:10.264  INFO 13156 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-06-15 15:41:10.718  INFO 13156 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-06-15 15:41:11.023  INFO 13156 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-06-15 15:41:13.565  INFO 13156 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-06-15 15:41:13.585  INFO 13156 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-15 15:41:13.685  INFO 13156 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-06-15 15:41:16.365  WARN 13156 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-06-15 15:41:17.134  INFO 13156 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-15 15:41:17.461  INFO 13156 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-06-15 15:41:19.498  INFO 13156 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-06-15 15:41:19.507  INFO 13156 --- [restartedMain] com.mzc.MyblogApplication                : Started MyblogApplication in 18.777 seconds (JVM running for 21.956)
+2020-06-15 15:41:40.627  INFO 13156 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-15 15:41:40.634  INFO 13156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-15 15:41:40.674  INFO 13156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 40 ms
+2020-06-15 15:41:40.785  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@48360699}
+2020-06-15 15:41:41.246  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:41:43.698  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@521ff55a}
+2020-06-15 15:41:43.910  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:41:45.921  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@5262a260}
+2020-06-15 15:41:45.949  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:41:47.184  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@c6f09bf}
+2020-06-15 15:41:47.277  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:41:50.085  INFO 13156 --- [http-nio-8080-exec-10] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@45628ebb}
+2020-06-15 15:41:50.107  INFO 13156 --- [http-nio-8080-exec-10] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:41:51.297  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/21', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@6b36a9d}
+2020-06-15 15:41:51.382  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:42:58.136  INFO 13156 --- [http-nio-8080-exec-10] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.index', args=[Ljava.lang.Object;@7f83058b}
+2020-06-15 15:42:58.249  WARN 13156 --- [http-nio-8080-exec-10] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-15 15:42:58.286  WARN 13156 --- [http-nio-8080-exec-10] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2020-06-15 15:42:58.333  INFO 13156 --- [http-nio-8080-exec-10] com.mzc.aspect.LogAspect                 : result : index
+2020-06-15 15:43:12.350  WARN 13156 --- [http-nio-8080-exec-10] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [943] milliseconds.
+2020-06-15 15:46:06.811  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.index', args=[Ljava.lang.Object;@af2a789}
+2020-06-15 15:46:06.851  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : result : index
+2020-06-15 15:46:12.905  INFO 13156 --- [http-nio-8080-exec-7] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/49', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@19c98da3}
+2020-06-15 15:46:12.946  INFO 13156 --- [http-nio-8080-exec-7] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:46:14.401  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/49', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@3b1e4a89}
+2020-06-15 15:46:14.410  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:47:01.398  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/50', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@2af6bd56}
+2020-06-15 15:47:01.424  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:47:02.725  INFO 13156 --- [http-nio-8080-exec-9] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/50', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@45327614}
+2020-06-15 15:47:02.732  INFO 13156 --- [http-nio-8080-exec-9] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:49:26.248  INFO 13156 --- [http-nio-8080-exec-5] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.index', args=[Ljava.lang.Object;@4211bd1b}
+2020-06-15 15:49:26.291  INFO 13156 --- [http-nio-8080-exec-5] com.mzc.aspect.LogAspect                 : result : index
+2020-06-15 15:51:06.796  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.index', args=[Ljava.lang.Object;@6eb10a5b}
+2020-06-15 15:51:06.830  INFO 13156 --- [http-nio-8080-exec-1] com.mzc.aspect.LogAspect                 : result : index
+2020-06-15 15:51:09.902  INFO 13156 --- [http-nio-8080-exec-6] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@508459e3}
+2020-06-15 15:51:09.933  INFO 13156 --- [http-nio-8080-exec-6] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:51:11.288  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@70eb0693}
+2020-06-15 15:51:11.298  INFO 13156 --- [http-nio-8080-exec-3] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:51:59.111  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.index', args=[Ljava.lang.Object;@698c1510}
+2020-06-15 15:51:59.145  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : result : index
+2020-06-15 15:52:01.713  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@6db81566}
+2020-06-15 15:52:01.744  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:52:03.037  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@278c5cb1}
+2020-06-15 15:52:03.045  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : result : blog :: commentList
+2020-06-15 15:52:24.274  INFO 13156 --- [http-nio-8080-exec-9] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/search', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.search', args=[Ljava.lang.Object;@705ac780}
+2020-06-15 15:52:24.297  INFO 13156 --- [http-nio-8080-exec-9] com.mzc.aspect.LogAspect                 : result : search
+2020-06-15 15:52:26.179  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/blog/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.IndexController.blog', args=[Ljava.lang.Object;@5787cb0d}
+2020-06-15 15:52:26.201  INFO 13156 --- [http-nio-8080-exec-4] com.mzc.aspect.LogAspect                 : result : blog
+2020-06-15 15:52:27.350  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : Request: {url='http://localhost:8080/comments/53', ip='0:0:0:0:0:0:0:1', classMetgod='com.mzc.web.CommentController.comments', args=[Ljava.lang.Object;@5ec423e1}
+2020-06-15 15:52:27.357  INFO 13156 --- [http-nio-8080-exec-8] com.mzc.aspect.LogAspect                 : result : blog :: commentList
