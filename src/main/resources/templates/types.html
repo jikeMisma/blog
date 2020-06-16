@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragements :: head(~{::title})">
 		<meta charset="utf-8">
 		<title>分类</title>
 		<meta name="viewport" content="width = device-width,initial-scale=1.0" />
@@ -12,7 +12,7 @@
 
 	<body>
 		<!-- 导航 -->
-		<nav class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+		<nav th:replace="_fragements :: menu(2)" class="ui inverted attached segment m-padded-tb-min m-shadow-small">
 			<div class="ui container">
 				<div class="ui inverted secondary stackable menu">
 					<h2 class="ui teal header item">Blog</h2>
@@ -45,121 +45,63 @@
 							<h3 class="ui teal header">分类</h3>
 						</div>
 						<div class="right aligned column">
-							共<h2 class="ui orange header m-inline-block m-padded-tn-tiny">17</h2>个
+							共<h2 class="ui orange header m-inline-block m-padded-tn-tiny" th:text="${#arrays.length(types)}">17</h2>个
 						</div>
 					</div>
 				</div>
 
 				<div class="ui attached segment">
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui basic teal button">思考与感悟</a>
-						<div class="ui basic teal left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
-					</div>
-					<div class="ui labeled button m-magin-tn-tiny">
-						<a href="#" class="ui  button">思考与感悟</a>
-						<div class="ui basic left pointing label">24</div>
+					<div class="ui labeled button m-magin-tn-tiny" th:each="type : ${types}">
+						<a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeid} ? 'teal'" th:text="${type.name}">思考与感悟</a>
+						<div class="ui basic left pointing label" th:classappend="${type.id==activeTypeid} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
 					</div>
 
 				</div>
 
 				<div class="ui top teal attached segment">
-					<div class="ui padded vertical segment m-padded-tn-large m-mobile-lr-clear">
-						<div class="ui mobile reversed stackable grid">
+					<div class="ui padded vertical segment" th:each="blog : ${page.content}">
+						<div class="ui middle aligned mobile reversed stackable grid" >
 							<div class="ui eleven wide column">
-								<h3 class="ui header">你真的理解什么财富吗？</h3>
-								<p class="m-text">就在4月18日，微博爆出了蘑菇街裁员的消息，而且裁员比例竟然高达百分之14%，对于员工人数在1000+的互联网公司。也就意味着将近150多人面临离职的危险。难道真的像有些人说的：2019年是过去十年互联网行业最不景气的一年，但有可能是未来十年最景气的十年？</p>
-								<div class="ui stackable grid">
+								<h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你真的理解什么财富吗</a>？</h3>
+								<p class="m-text" th:text="|${blog.description}.....|">就在4月18日，微博爆出了蘑菇街裁员的消息，而且裁员比例竟然高达百分之14%，对于员工人数在1000+的互联网公司。也就意味着将近150多人面临离职的危险。难道真的像有些人说的：2019年是过去十年互联网行业最不景气的一年，但有可能是未来十年最景气的十年？</p>
+								<div class="ui grid">
 									<div class="eleven wide column">
 										<div class="ui min horizontal link list">
 											<div class="item">
-												<img class="ui avatar image" src="../static/images/zhanwei.jpg" />
+												<img class="ui avatar image" src="../static/images/zhanwei.jpg" th:src="@{${blog.user.avatar}}"/>
 												<div class="content">
-													<a class="header">马志成</a>
+													<a class="header" th:text="${blog.user.nickname}">马志成</a>
 												</div>
 											</div>
 											<div class="item">
-												<i class="calendar icon"></i>2020-10-2
+												<i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-2</span>
 											</div>
 											<div class="item">
-												<i class="eye icon"></i>1254
+												<i class="eye icon"></i><span th:text="${blog.views}">1254</span>
 											</div>
 										</div>
 									</div>
 									<div class="right aligned five wide column">
-										<a href="#" target="_blank" class="ui label teal basic m-padded-tn-tiny">认知升级</a>
+										<a href="#" target="_blank" class="ui label teal basic m-padded-tn-tiny" th:text="${blog.type.name}">认知升级</a>
 									</div>
 								</div>
 							</div>
 							<div class="ui five wide column">
-								<a href="#" target="_blank">
-									<img class="ui rounded image m-img-size" src="../static/images/zhanwei.jpg " />
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="ui padded vertical segment m-padded-tn-large m-mobile-lr-clear">
-						<div class="ui mobile reversed stackable grid">
-							<div class="ui eleven wide column">
-								<h3 class="ui header">你真的理解什么财富吗？</h3>
-								<p class="m-text">就在4月18日，微博爆出了蘑菇街裁员的消息，而且裁员比例竟然高达百分之14%，对于员工人数在1000+的互联网公司。也就意味着将近150多人面临离职的危险。难道真的像有些人说的：2019年是过去十年互联网行业最不景气的一年，但有可能是未来十年最景气的十年？</p>
-								<div class="ui stackable grid">
-									<div class="eleven wide column">
-										<div class="ui min horizontal link list">
-											<div class="item">
-												<img class="ui avatar image" src="../static/images/zhanwei.jpg" />
-												<div class="content">
-													<a class="header">马志成</a>
-												</div>
-											</div>
-											<div class="item">
-												<i class="calendar icon"></i>2020-10-2
-											</div>
-											<div class="item">
-												<i class="eye icon"></i>1254
-											</div>
-										</div>
-									</div>
-									<div class="right aligned five wide column">
-										<a href="#" target="_blank" class="ui label teal basic m-padded-tn-tiny">认知升级</a>
-									</div>
-								</div>
-							</div>
-							<div class="ui five wide column">
-								<a href="#" target="_blank">
-									<img class="ui rounded image m-img-size" src="../static/images/zhanwei.jpg " />
+								<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+									<img class="ui rounded image m-img-size" src="../static/images/zhanwei.jpg " th:src="@{${blog.firstPicture}}" />
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				<div class="ui bottom attached segment">
+
+				<div class="ui bottom attached segment" th:if="${page.totalPages}>1">
 					<div class="ui middle aligned two column grid">
 						<div class="column">
-							<a href="#" class="ui mini teal basic button">上一页</a>
+							<a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class="ui mini teal basic button">上一页</a>
 						</div>
 						<div class="right aligned column">
-							<a href="#" class="ui mini teal basic button">下一页</a>
+							<a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}" class="ui mini teal basic button">下一页</a>
 						</div>
 					</div>
 				</div>
@@ -174,7 +116,7 @@
 			<div class="ui center aligned container">
 				<div class="ui inverted divided stackable grid">
 					<div class="three wide column">
-						<img src="../static/images/wecaht.png" class="ui centered rounded image" style="width: 110px;" />
+						<img src="../static/images/wecaht.png" th:src="@{/images/wecaht.png}" class="ui centered rounded image" style="width: 110px;" />
 					</div>
 					<div class="four wide column">
 						<h4 class="ui inverted header">最新博客</h4>
