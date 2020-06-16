@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head th:replace="_fragements :: head(~{::title})">
 		<meta charset="utf-8">
 		<title>关于我</title>
 		<meta name="viewport" content="width = device-width,initial-scale=1.0" />
@@ -12,7 +12,7 @@
 
 	<body>
 		<!-- 导航 -->
-		<nav class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+		<nav  th:replace="_fragements :: menu(5)"  class="ui inverted attached segment m-padded-tb-min m-shadow-small">
 			<div class="ui container">
 				<div class="ui inverted secondary stackable menu">
 					<h2 class="ui teal header item">Blog</h2>
@@ -41,7 +41,7 @@
 				<div class="ui stackable grid">
 					<div class="ui eleven wide column">
 						<div class="ui segment">
-							<img src="../static/images/zhanwei.jpg" class="ui rounded image" style="width: 800px;" />
+							<img src="../static/images/meimg.jpg" th:src="@{/images/meimg.jpg}" class="ui rounded image" style="width: 800px;" />
 						</div>
 						
 					</div>
@@ -50,7 +50,7 @@
 							<div class="ui header">关于我</div>
 						</div>
 						<div class="ui attached segment">
-							<p class="m-text">马志成，是一名计算机软件行业的博主。他一直在热衷于分享安卓开发,数据挖掘(Data Mining),学习感悟,C领域的技术知识。他主要关注React.js,JavaScript,WebPack,CSS,...</p>
+							<p class="m-text">马志成，湖南科技大学计算学院17级学生，是一名计算机软件行业的博主。他一直在热衷于分享安卓开发,数据挖掘(Data Mining),学习感悟,C领域的技术知识。他主要关注React.js,JavaScript,WebPack,CSS,...</p>
 							<p class="m-text">热爱编程，喜欢折腾，正在探索高效的学习方法</p>
 						</div>
 						<div class="ui attached segment">
@@ -89,14 +89,14 @@
 			<div class="ui center aligned container">
 				<div class="ui inverted divided stackable grid">
 					<div class="three wide column">
-						<img src="static/images/wecaht.png" class="ui centered rounded image" style="width: 110px;" />
+						<img src="static/images/wecaht.png" th:src="@{/images/wecaht.png}"  class="ui centered rounded image" style="width: 110px;" />
 					</div>
 					<div class="four wide column">
 						<h4 class="ui inverted header">最新博客</h4>
 						<div class="ui inverted link list">
-							<a href="#" class="item">用户故事（User Story）</a>
-							<a href="#" class="item">关于可以联系的清单</a>
-							<a href="#" class="item">失败要乘早</a>
+							<a href="https://blog.csdn.net/mzc_love" class="item">我的博客(CSDN)</a>
+							<a href="https://github.com/jikeMisma" class="item">我的gitHub</a>
+							<a href="http://wx.xshopwork.com/BBS_system" class="item">我的BBS系统</a>
 						</div>
 					</div>
 					<div class="four wide column">
@@ -109,7 +109,7 @@
 					</div>
 					<div class="five wide column">
 						<h4 class="ui inverted header">Blog</h4>
-						<p>这是我的个人博客，会反向关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
+						<p>这是我的个人博客，会分享关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
 					</div>
 				</div>
 				<div class="ui inverted section divider"></div>

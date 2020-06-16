@@ -17,9 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author mazhicheng
@@ -30,6 +28,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogRepository blogRepository;
+
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
@@ -104,6 +103,31 @@ public class BlogServiceImpl implements BlogService {
         Sort sort = Sort.by(Sort.Direction.DESC,"updateTime");
         Pageable pageable = PageRequest.of(0,size,sort);
         return blogRepository.findTop(pageable);
+    }
+
+
+    /**
+     * 根据年份对博客进行归档，应用于前端的归档页面
+     * @return
+     */
+    @Override
+    public Map<String, List<Blog>> archiveBlog() {
+
+        List<String> years = blogRepository.findGroupYear();
+        Map<String,List<Blog>> map = new LinkedHashMap<>();
+        for (String year :years){
+            map.put(year,blogRepository.findByYear(year));
+        }
+        return map;
+    }
+
+    /**
+     * 归档中查询博客总条数
+     * @return
+     */
+    @Override
+    public Long countBlog() {
+        return blogRepository.count();
     }
 
     @Transactional

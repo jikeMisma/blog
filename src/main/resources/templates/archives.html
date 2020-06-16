@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head  th:replace="_fragements :: head(~{::title})">
 		<meta charset="utf-8">
 		<title>归档</title>
 		<meta name="viewport" content="width = device-width,initial-scale=1.0" />
@@ -12,7 +12,7 @@
 
 	<body>
 		<!-- 导航 -->
-		<nav class="ui inverted attached segment m-padded-tb-min m-shadow-small">
+		<nav th:replace="_fragements :: menu(4)"  class="ui inverted attached segment m-padded-tb-min m-shadow-small">
 			<div class="ui container">
 				<div class="ui inverted secondary stackable menu">
 					<h2 class="ui teal header item">Blog</h2>
@@ -45,81 +45,25 @@
 							<h3 class="ui teal header">分类</h3>
 						</div>
 						<div class="right aligned column">
-							共<h2 class="ui orange header m-inline-block m-padded-tn-tiny">189</h2>篇博客
+							共<h2 class="ui orange header m-inline-block m-padded-tn-tiny" th:text="${blogCount}">189</h2>篇博客
 						</div>
 					</div>
 				</div>
-				
-				<h3 class="ui center aligned header">2017</h3>
+
+				<th:block th:each="item : ${archiveMap}">
+				<h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
 				<div class="ui fluid vertical menu">
-					<a href="#" target="_blank" class="item">
+					<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
 						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
+							<i class="mini teal circle icon"></i>&nbsp;&nbsp;<span th:text="${blog.title}">关与刻意联系的清单</span>
+							<div class="ui teal basic left pointing label m-padded-tn-small"  th:text="${#dates.format(blog.updateTime,'MMMdd')}">09月03日</div>
 						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
+						<div class="ui orange basic left pointing label m-padded-tn-small" th:text="${blog.flag}">原创</div>
 					</a>
 				</div>
-				
-				<h3 class="ui center aligned header">2016</h3>
-				<div class="ui fluid vertical menu">
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-					<a href="#" target="_blank" class="item">
-						<span>
-							<i class="mini teal circle icon"></i>    关与刻意联系的清单
-							<div class="ui teal basic left pointing label m-padded-tn-small">09月03日</div>
-						</span>
-						<div class="ui orange basic left pointing label m-padded-tn-small">原创</div>
-					</a>
-				</div>
-				
-				
+				</th:block>
 			</div>
 		</div>
-
-				
-
 
 
 		<!-- 尾部 -->
@@ -127,14 +71,14 @@
 			<div class="ui center aligned container">
 				<div class="ui inverted divided stackable grid">
 					<div class="three wide column">
-						<img src="static/images/wecaht.png" class="ui centered rounded image" style="width: 110px;" />
+						<img src="../static/images/wecaht.png" th:src="@{/images/wecaht.png}" class="ui centered rounded image" style="width: 110px;" />
 					</div>
 					<div class="four wide column">
 						<h4 class="ui inverted header">最新博客</h4>
 						<div class="ui inverted link list">
-							<a href="#" class="item">用户故事（User Story）</a>
-							<a href="#" class="item">关于可以联系的清单</a>
-							<a href="#" class="item">失败要乘早</a>
+							<a href="https://blog.csdn.net/mzc_love" class="item">我的博客(CSDN)</a>
+							<a href="https://github.com/jikeMisma" class="item">我的gitHub</a>
+							<a href="http://wx.xshopwork.com/BBS_system" class="item">我的BBS系统</a>
 						</div>
 					</div>
 					<div class="four wide column">
@@ -147,7 +91,7 @@
 					</div>
 					<div class="five wide column">
 						<h4 class="ui inverted header">Blog</h4>
-						<p>这是我的个人博客，会反向关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
+						<p>这是我的个人博客，会分享关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
 					</div>
 				</div>
 				<div class="ui inverted section divider"></div>

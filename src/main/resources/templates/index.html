@@ -325,13 +325,13 @@
 										<i class="ieda icon"></i>分类
 									</div>
 									<div class="right aligned column">
-										<a href="#" target="_blank">more<i class="angle double right icon"></i></a>
+										<a href="#" th:href="@{/types/-1}" target="_blank">more<i class="angle double right icon"></i></a>
 									</div>
 								</div>
 							</div>
 							<div class="ui teal segment">
 								<div class="ui fluid vertical menu" >
-									<a href="#" class="item" th:each="type  : ${types}">
+									<a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item" th:each="type  : ${types}">
 										<span th:text="${type.name}">学习日志</span>
 										<div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
 									</a>
@@ -369,12 +369,12 @@
 										<i class="tage icon"></i>标签
 									</div>
 									<div class="right aligned column">
-										<a href="#" target="_blank">more<i class="angle double right icon"></i></a>
+										<a href="#" th:href="@{/tags/-1}" target="_blank">more<i class="angle double right icon"></i></a>
 									</div>
 								</div>
 							</div>
 							<div class="ui teal segment">
-								<a href="#" target="_blank" class="ui teal basic left pointing label m-magin-tn-tiny" th:each="tag : ${tags}">
+								<a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui teal basic left pointing label m-magin-tn-tiny" th:each="tag : ${tags}">
 									<span th:text="${tag.name}">方法论</span><div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
 								</a>
 
@@ -460,9 +460,9 @@
 					<div class="four wide column">
 						<h4 class="ui inverted header">最新博客</h4>
 						<div class="ui inverted link list">
-							<a href="#" class="item">用户故事（User Story）</a>
-							<a href="#" class="item">关于可以联系的清单</a>
-							<a href="#" class="item">失败要乘早</a>
+							<a href="https://blog.csdn.net/mzc_love" class="item">我的博客(CSDN)</a>
+							<a href="https://github.com/jikeMisma" class="item">我的gitHub</a>
+							<a href="http://wx.xshopwork.com/BBS_system" class="item">我的BBS系统</a>
 						</div>
 					</div>
 					<div class="four wide column">
@@ -475,7 +475,7 @@
 					</div>
 					<div class="five wide column">
 						<h4 class="ui inverted header">Blog</h4>
-						<p>这是我的个人博客，会反向关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
+						<p>这是我的个人博客，会分享关于编程，写作，学习，生活，思考等各个方面相关的内容，希望可以和大家共勉，对大家有所帮助</p>
 					</div>
 				</div>
 				<div class="ui inverted section divider"></div>
